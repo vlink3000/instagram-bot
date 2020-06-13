@@ -4,6 +4,8 @@ namespace App\Infrastructure\Repository;
 
 use App\Domain\Repository\InstagramUserRepositoryInterface;
 use App\Library\Instagram;
+use App\Library\Media\Photo\InstagramPhoto;
+use App\Library\Response\Model\Location;
 
 class InstagramUserRepository implements InstagramUserRepositoryInterface
 {
@@ -15,8 +17,16 @@ class InstagramUserRepository implements InstagramUserRepositoryInterface
     public function triggerAction(array $requestData): void
     {
         $connection = new Instagram();
-        $connection->login("test", "test");
 
-        var_dump($requestData);die();
+        try {
+            $connection->login("trudyliebmann", "t123udylie23ma*n");
+
+            $photo = new InstagramPhoto("");
+            $connection->timeline->uploadPhoto($photo->getFile(), ['caption' => "My first photo! #hello #firstphoto #me"]);
+
+        } catch (\Exception $exception) {
+            echo $exception->getMessage();
+            die();
+        }
     }
 }
