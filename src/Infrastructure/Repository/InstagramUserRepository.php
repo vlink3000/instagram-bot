@@ -5,7 +5,6 @@ namespace App\Infrastructure\Repository;
 use App\Domain\Repository\InstagramUserRepositoryInterface;
 use App\Library\Instagram;
 use App\Library\Media\Photo\InstagramPhoto;
-use App\Library\Response\Model\Location;
 
 class InstagramUserRepository implements InstagramUserRepositoryInterface
 {
