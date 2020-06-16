@@ -19,7 +19,7 @@ class InstagramUserRepository implements InstagramUserRepositoryInterface
         $connection = new Instagram();
 
         try {
-            $connection->login("test", "test");
+            $connection->login("test", "secret");
 
             $photo = new InstagramPhoto("");
             $connection->timeline->uploadPhoto($photo->getFile(), ['caption' => "My first photo! #hello #firstphoto #me"]);
